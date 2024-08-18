@@ -22,6 +22,9 @@ public class FileService {
             HashMap<String, List<File>> filesGroupedBySameName = new HashMap<>();
             logger.info("Listing files with same names");
             File directory = new File(directoryPath);
+            if (directoryPath.isBlank()) {
+                throw new RuntimeException("Directory path is empty");
+            }
 
             Collection<File> files = FileUtils.listFilesAndDirs(directory, FileFilterUtils.trueFileFilter(), DirectoryFileFilter.DIRECTORY);
 

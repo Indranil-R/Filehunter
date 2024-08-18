@@ -82,7 +82,6 @@ public class MainController {
                 root.getChildren().add(groupItem);
             }
 
-            TreeTableColumn<File, String> nameColumn = new TreeTableColumn<>("Name");
             pathNameColumn.setCellValueFactory(param -> {
                 if (param.getValue().getParent() != null && param.getValue().getParent().getParent() != null) {
                     return new SimpleStringProperty(param.getValue().getValue().getAbsolutePath());
@@ -98,9 +97,6 @@ public class MainController {
                     return new SimpleStringProperty("");
                 }
             });
-
-            // Add the column to the TreeTableView
-            treeTableView.getColumns().add(nameColumn);
 
         } catch (Exception e) {
             logger.error("Error while scanning files: {}", e.getMessage());
