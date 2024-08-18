@@ -29,6 +29,17 @@ public class MainController {
     private TreeTableColumn<File, String> pathNameColumn, fileSizeColumn;
     @FXML
     private Label fileDirectoryInfoLabel;
+    @FXML
+    private TextField directoryToScanTextField;
+
+    @FXML
+    protected void openGithubPage() {
+        try {
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create("https://github.com/Indranil-R/Filehunter"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @FXML
     protected void showAbout() throws IOException {
@@ -109,7 +120,8 @@ public class MainController {
     public void scanDuplicateFiles() {
         try {
             long startTime = System.currentTimeMillis();
-            filesGroupedByName = listFilesWithSameNames();
+            String directoryToScan = directoryToScanTextField.getText();
+            filesGroupedByName = listFilesWithSameNames(directoryToScan);
             long endTime = System.currentTimeMillis();
             logger.info("Time taken: {}", (endTime - startTime));
         } catch (Exception e) {
@@ -120,7 +132,7 @@ public class MainController {
 
     public void startScanning() {
 
-        Task<Void> task = new Task<Void>() {
+        Task<Void> task = new Task<>() {
             @Override
             protected Void call() {
                 scanDuplicateFiles();

@@ -15,13 +15,13 @@ import java.util.List;
 public class FileService {
     private static final Logger logger = LoggerFactory.getLogger(FileService.class);
 
-    public static HashMap<String, List<File>> listFilesWithSameNames() {
+    public static HashMap<String, List<File>> listFilesWithSameNames(String directoryPath) {
 
         try {
 
             HashMap<String, List<File>> filesGroupedBySameName = new HashMap<>();
             logger.info("Listing files with same names");
-            File directory = new File("C:\\Program Files");
+            File directory = new File(directoryPath);
 
             Collection<File> files = FileUtils.listFilesAndDirs(directory, FileFilterUtils.trueFileFilter(), DirectoryFileFilter.DIRECTORY);
 

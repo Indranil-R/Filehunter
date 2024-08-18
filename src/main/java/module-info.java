@@ -5,6 +5,7 @@ module app.nexaray.filehunter.filehunter {
     requires org.kordamp.ikonli.javafx;
     requires org.apache.commons.io;
     requires org.slf4j;
+    requires java.desktop;
 
 
     opens app.nexaray.filehunter to javafx.fxml;
