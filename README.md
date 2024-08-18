@@ -4,7 +4,7 @@
 
 ## Overview
 
-**File Hunter** is a sleek, efficient, and powerful tool designed to scan directories, compare files, and identify duplicates. With a minimalist interface inspired by Apple's design philosophy, File Hunter simplifies file management tasks, helping you stay organized and efficient.
+**File Hunter** is a sleek, efficient, and powerful tool designed to scan directories, compare files, and identify duplicates. With a minimalist interface, File Hunter simplifies file management tasks, helping you stay organized and efficient.
 
 ## Features
 
